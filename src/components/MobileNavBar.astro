@@ -1,0 +1,37 @@
+<section class="flex-col md:hidden items-center justify-between mx-2">
+    <div class="flex justify-between mx-3">
+        <a href="/"><img class="w-40 xl:w-64 py-3" src="Logo_letra.jpg" alt="Logo de Mogoda Trail"></a>
+        <img id="menu" class="cursor-pointer" width="48px" src="./menu.svg" alt="icono menu">
+    </div>
+    <nav id="navbar" class="hidden place-content-center text-center gap-3 mb-3 transition-all">
+        <a class="hover:underline" href="/">Inicio</a>
+        <a class="hover:underline" href="/club">El Club</a>
+        <a class="hover:underline" href="/socio">Alta Socio</a>
+        <a class="hover:underline" href="/plogging">Plogging</a>
+        <a class="hover:underline" href="/santa_5k">5K de Santa</a>
+        <a class="hover:underline" href="/canicros">Canicros</a>
+    </nav>
+</section>
+<script type="module">
+    let isOpen = false
+    const menuBtn = document.getElementById('menu')
+    const navBar = document.getElementById('navbar')
+    menuBtn.src = "./menu.svg"
+
+    menuBtn.addEventListener('click', function() {
+        if (!isOpen) {
+            navBar.classList.remove('hidden');
+            navBar.classList.add('grid');
+        } else {
+            navBar.classList.remove('grid');
+            navBar.classList.add('hidden');
+        }
+        isOpen = !isOpen;
+
+        if (isOpen) {
+            menuBtn.src = './close.svg';
+        } else {
+            menuBtn.src = './menu.svg';
+        }
+    });
+</script>
