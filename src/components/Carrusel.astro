@@ -1,5 +1,5 @@
 <section id="section" class="bg-cover h-175 bg-center">
-    <div class="w-96 text-center md:mx-0 mx-auto relative top-36 md:top-52 md:left-[20%] backdrop-blur-sm pb-14 px-7 pt-5 rounded-xl backdrop-brightness-75">
+    <div class="w-96 text-center md:mx-0 mx-auto relative top-16 md:top-52 md:left-[20%] backdrop-blur-sm pb-14 px-7 pt-5 rounded-xl backdrop-brightness-75">
         <span class="text-primary text-4xl w-80 font-semibold">¿Quieres unirte y superarte en tus nuevos retos?</span>
         <a class="bg-secondary w-14 px-4 py-2 relative top-6 hover:underline rounded-sm text-lg" href="/socio">Unirse</a>
     </div>
@@ -10,6 +10,18 @@
     let fotoActual = 0;
     section.style.backgroundImage = `url('../${fotos[0]}')`
 
+    // Pre-cargar imágenes
+    const imagenesCargadas = [];
+    fotos.forEach((foto, index) => {
+        const img = new Image();
+        img.src = `../${foto}`;
+        img.onload = () => {
+            console.log(`Imagen ${foto} cargada`);
+            imagenesCargadas[index] = img; // Guardar las imágenes ya cargadas
+        };
+    });
+
+    // Cambiar la imagen de fondo cada 3 segundos una vez cargada
     setInterval(function() {
         fotoActual = (fotoActual + 1) % fotos.length;
         section.style.backgroundImage = `url('../${fotos[fotoActual]}')`;
