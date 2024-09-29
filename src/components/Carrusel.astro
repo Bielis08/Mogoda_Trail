@@ -1,6 +1,18 @@
-<section class="bg-[url(../Night_Trail.jpg)] bg-cover h-175 bg-center">
+<section id="section" class="bg-cover h-175 bg-center">
     <div class="w-96 text-center md:mx-0 mx-auto relative top-36 md:top-52 md:left-[20%] backdrop-blur-sm pb-14 px-7 pt-5 rounded-xl backdrop-brightness-75">
         <span class="text-primary text-4xl w-80 font-semibold">¿Quieres unirte y superarte en tus nuevos retos?</span>
         <a class="bg-secondary w-14 px-4 py-2 relative top-6 hover:underline rounded-sm text-lg" href="/socio">Unirse</a>
     </div>
 </section>
+<script type="module">
+    const section = document.getElementById('section');
+    const fotos = ['Night_Trail.jpg', 'Emili.png', 'Entrenamiento1.png', 'olla_nuria.png', 'Raquel.png'];
+    let fotoActual = 0;
+    section.style.backgroundImage = `url('../${fotos[0]}')`
+
+    setInterval(function() {
+        fotoActual = (fotoActual + 1) % fotos.length;
+        section.style.backgroundImage = `url('../${fotos[fotoActual]}')`;
+        console.log(`Mostrando imagen: ${fotos[fotoActual]}`);
+    }, 3000);
+</script>
